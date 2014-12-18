@@ -42,7 +42,9 @@ class Build(JenkinsBase):
     def _poll(self):
         # For build's we need more information for downstream and upstream builds
         # so we override the poll to get at the extra data for build objects
-        url = self.python_api_url(self.baseurl) + '?depth=1'
+        # url = self.python_api_url(self.baseurl) + '?depth=1'
+        # PMD commented out the depth setting
+        url = self.python_api_url(self.baseurl)
         return self.get_data(url)
 
     def __str__(self):
